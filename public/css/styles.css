@@ -860,6 +860,7 @@ input[type=text]:focus + label, input[type=text]:valid + label {
 #social-media-m .fa {
   text-decoration: none;
   display: inline-block;
+  z-index: 1;
   position: relative;
   width: 30px;
   height: 30px;
@@ -870,12 +871,8 @@ input[type=text]:focus + label, input[type=text]:valid + label {
   bottom: -60px;
   border-radius: 100%;
 }
-#social-media-m .fa-linkedin {animation: social-anim 0.5s ease 1s forwards;}
-#social-media-m .fa.fa-facebook {
-  line-height: 32px;
-  animation: social-anim 0.5s ease 2s forwards;
-}
-#social-media-m .fa-github {animation: social-anim 0.5s ease 1.5s forwards;}
+#social-media-m .fa-linkedin {animation: social-anim 1s ease 1.5s forwards;}
+#social-media-m .fa-github {animation: social-anim 1s ease 2s forwards;}
 #social-media-m .fa:hover {left: 0;}
 @keyframes social-anim {
   0% {bottom: -60px;}
