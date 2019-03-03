@@ -3,8 +3,8 @@ const { promisify } = require("util");
 
 const db = mysql.createConnection({
   host: "localhost",
-  user: "kawara",
-  password: "pass",
+  user: "hyfuser", // kawara
+  password: "hyfpassword", //encrypted password
   database: "portfolio"
 });
 

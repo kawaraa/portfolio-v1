@@ -3,7 +3,7 @@ const path = require("path");
 const appDIR = path.join(__dirname, "../").toString();
 const express = require("express");
 const bodyParser = require("body-parser");
-// const apiRouter = require("./api.js");
+const apiRouter = require("./api.js");
 const sendEmail = require("./mailer.js");
 
 const app = express();
@@ -11,7 +11,7 @@ const app = express();
 app.use(express.static(appDIR + "client"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-// app.use("/api", apiRouter);
+app.use("/api", apiRouter);
 
 app.get("*", (req, res) => {
   res.sendFile(appDIR + "client/public/index.html");
