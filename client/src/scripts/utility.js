@@ -1,7 +1,6 @@
-"use strict"
+"use strict";
 
-class util {
-
+class Util {
   static createAppend(name, parent, options = {}) {
     const elem = document.createElement(name);
     parent.appendChild(elem);
@@ -26,8 +25,9 @@ class util {
         } else {
           reject(new Error(`Network error: ${xhr.status} - ${xhr.statusText}`));
         }
-      }
-      xhr.onerror = () => reject(new Error(`Network error: ${xhr.status} - ${xhr.statusText}`));
+      };
+      xhr.onerror = () =>
+        reject(new Error(`Network error: ${xhr.status} - ${xhr.statusText}`));
       xhr.send();
     });
   }
@@ -44,10 +44,10 @@ class util {
         } else {
           reject(new Error(`Network error: ${xhr.status} - ${xhr.statusText}`));
         }
-      }
-      xhr.onerror = () => reject(new Error(`Network error: ${xhr.status} - ${xhr.statusText}`));
+      };
+      xhr.onerror = () =>
+        reject(new Error(`Network error: ${xhr.status} - ${xhr.statusText}`));
       xhr.send(json);
     });
   }
-
 }
