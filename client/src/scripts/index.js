@@ -123,9 +123,9 @@ function getProjects(e) {
       active.style.left = (width / 6) * 4 + "px";
       renderProjects("css");
       break;
-    case "wordpress":
+    case "typescript":
       active.style.left = (width / 6) * 5 + "px";
-      renderProjects("wordpress");
+      renderProjects("typescript");
       break;
   }
 }

@@ -6,6 +6,10 @@ const projects = [
   {
     tech: ["javascript", "css"],
     link: "https://social-app.kawaraa.com"
+  },
+  {
+    tech: ["node.js", "javascript", "react", "css"],
+    link: "https://class17hackyourestate.herokuapp.com/"
   }
 ];
 
