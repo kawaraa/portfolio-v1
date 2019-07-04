@@ -1,5 +1,9 @@
 "use strict";
+<<<<<<< HEAD
 // Add to projects: https://class17hackyourestate.herokuapp.com/
+=======
+// Add to projects:
+>>>>>>> docker
 
 // const path = require("path");
 // const root = path.join(__dirname, "../");
