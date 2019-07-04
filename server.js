@@ -1,4 +1,5 @@
-"use strict"
+"use strict";
+// Add to projects: https://class17hackyourestate.herokuapp.com/
 
 // const path = require("path");
 // const root = path.join(__dirname, "../");
@@ -20,14 +21,12 @@ app.post("/contact", (req, res) => {
 });
 
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, (err) => {
-  let state = err ? err.message : `Server listening on port ${PORT}...`;
+app.listen(PORT, err => {
+  let state = err ? err.message : `App running on http://localhost:${PORT}`;
   console.log(state);
 });
 
-
 function sendEmail(form) {
-
   const contactInfo = `
   <h2>A new contact request</h2>
   <h3>Contact details</h3>
@@ -44,10 +43,10 @@ function sendEmail(form) {
   `;
 
   let transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: "gmail",
     auth: {
-      user: 'ahma6d@gmail.com',
-      pass: 'xgeansxbhhfyyifb'
+      user: "ahma6d@gmail.com",
+      pass: "xgeansxbhhfyyifb"
     }
   });
 
@@ -60,7 +59,6 @@ function sendEmail(form) {
 
   transporter.sendMail(mailOptions, (err, info) => {
     let result = err ? err : "Message sent: " + info.messageId;
-    console.error(result)
+    console.error(result);
   });
-
 }
