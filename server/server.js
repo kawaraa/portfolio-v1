@@ -1,16 +1,15 @@
-"use strict"
+"use strict";
 const path = require("path");
 const appDIR = path.join(__dirname, "../").toString();
 const express = require("express");
-const bodyParser = require("body-parser");
 const apiRouter = require("./api.js");
 const sendEmail = require("./mailer.js");
 
 const app = express();
 
 app.use(express.static(appDIR + "client"));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use("/api", apiRouter);
 
 app.get("*", (req, res) => {
@@ -29,4 +28,3 @@ app.use("*", (req, res) => {
 });
 
 module.exports = app;
-
