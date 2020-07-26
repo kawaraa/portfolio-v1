@@ -3,12 +3,12 @@ CREATE DATABASE IF NOT EXISTS `portfolio`;
 USE `portfolio`;
 
 CREATE TABLE IF NOT EXISTS `project` (
-`id` INT NOT NULL AUTO_INCREMENT,
-`title` VARCHAR(255) NOT NULL,
-`link` VARCHAR(255) UNIQUE NOT NULL,
-`technology` TEXT NOT NULL,
-`starsRate` INT,
-`views` INT,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(255) NOT NULL,
+  `link` VARCHAR(255) UNIQUE NOT NULL,
+  `technology` TEXT NOT NULL,
+  `starsRate` INT,
+  `views` INT,
   PRIMARY KEY(id)
 );
 

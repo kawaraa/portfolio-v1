@@ -485,7 +485,7 @@ canvas {
   margin: 0 0 10px 5px;
   font-size: 20px;
 }
-#select {
+#job {
   background: none;
   border: none;
   border-bottom: 1px solid #1c1e27;
@@ -572,15 +572,15 @@ canvas {
 }
 input[type="text"]:hover,
 input[type="text"]:focus,
-#select:hover,
-#select:focus,
+#job:hover,
+#job:focus,
 #message:hover,
 #message:focus {
   border-bottom: 1.5px solid #1c1e27;
 }
 input[type="text"]:focus,
 input[type="range"]:focus,
-#select:focus,
+#job:focus,
 #message:focus {
   outline: none;
 }
@@ -1168,7 +1168,7 @@ input[type="text"]:valid + label {
   .form-select > label {
     font-size: 18px;
   }
-  #select {
+  #job {
     font-size: 16px;
   }
   .form-range {

@@ -3,7 +3,7 @@ class Query {
     this._technology = technology;
   }
   set _technology(value) {
-    this.technology = (typeof value === "string") & (value.length < 12) && value !== "all" ? value : "";
+    this.technology = typeof value === "string" && value.length < 12 && value !== "all" ? value : "";
   }
 }
 
