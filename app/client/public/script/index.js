@@ -78,7 +78,11 @@ function renderProjects(techName) {
       if (!projects[0]) return;
       projects.forEach((project) => {
         let div = Util.createAppend("div", container, { class: "frames" });
-        Util.createAppend("iframe", div, { src: project.link, class: "frames-imgs" });
+        console.log(project.link);
+        Util.createAppend("iframe", div, {
+          src: project.link,
+          class: "frames-imgs",
+        });
         Util.createAppend("a", div, {
           href: project.link,
           target: "_blank",
@@ -89,7 +93,6 @@ function renderProjects(techName) {
     })
     .catch(console.error);
 }
-renderProjects("all");
 
 function filterProjects(e) {
   let width = document.getElementById("projects-categories").offsetWidth;

@@ -24,7 +24,7 @@ let transMin = `translateZ(-${width / 2}px)`;
 pagesContainer.style.perspective = width + "px";
 cube.style.width = width + "px";
 cube.style.transform = transMin;
-document.querySelectorAll(".pages").forEach(el => {
+document.querySelectorAll(".pages").forEach((el) => {
   el.style.width = width + "px";
 });
 intro.style.transform = "rotateY(0deg)" + transPlus;
@@ -66,6 +66,7 @@ function showPage() {
       contact.style.display = "block";
       cube.style.transform = transMin + "rotateY(-180deg)";
       setTimeout(() => hidePages(intro, about, contact), 550);
+      renderProjects("all");
       break;
     case "#contact":
       intro.style.display = "block";
@@ -121,46 +122,15 @@ function multiplyObject(canvas, num, size, spd) {
   const shapes = [];
   for (let i = 0; i < num; i++) {
     shapes.push(
-      new Circle(
-        ctx,
-        width / 2 + 50,
-        height / 2 + i * 2,
-        i,
-        size,
-        "#D9005A",
-        spd,
-        width / 2 + i * i
-      )
+      new Circle(ctx, width / 2 + 50, height / 2 + i * 2, i, size, "#D9005A", spd, width / 2 + i * i)
     );
-    shapes.push(
-      new Circle(
-        ctx,
-        width / 2 + 50,
-        height / 2 + i * i,
-        i,
-        size,
-        "#4DFF99",
-        spd,
-        100 + i * i
-      )
-    );
-    shapes.push(
-      new Circle(
-        ctx,
-        width / 2,
-        height / 2,
-        i,
-        size,
-        "#E1B6AB",
-        spd,
-        110 + i * i
-      )
-    );
+    shapes.push(new Circle(ctx, width / 2 + 50, height / 2 + i * i, i, size, "#4DFF99", spd, 100 + i * i));
+    shapes.push(new Circle(ctx, width / 2, height / 2, i, size, "#E1B6AB", spd, 110 + i * i));
   }
   function animate() {
     requestAnimation(animate);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    shapes.forEach(obj => obj.draw());
+    shapes.forEach((obj) => obj.draw());
   }
   animate();
 }
