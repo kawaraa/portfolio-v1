@@ -1,0 +1,29 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Kawara Portfolio",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "npx nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kawaraa/portfolio.git"
+  },
+  "homepage": "https://github.com/kawaraa/portfolio#readme",
+  "bugs": {
+    "url": "https://github.com/kawaraa/portfolio/issues"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql": "^2.18.1",
+    "nodemailer": "^5.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}

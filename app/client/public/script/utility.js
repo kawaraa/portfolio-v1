@@ -15,6 +15,7 @@ class Util {
   }
 
   static fetchJSON(url) {
+    url = window.location.origin + url;
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.open("GET", url, true);
@@ -26,13 +27,13 @@ class Util {
           reject(new Error(`Network error: ${xhr.status} - ${xhr.statusText}`));
         }
       };
-      xhr.onerror = () =>
-        reject(new Error(`Network error: ${xhr.status} - ${xhr.statusText}`));
+      xhr.onerror = () => reject(new Error(`Network error: ${xhr.status} - ${xhr.statusText}`));
       xhr.send();
     });
   }
 
   static postJSON(url, json) {
+    url = window.location.origin + url;
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.open("POST", url, true);
@@ -45,8 +46,7 @@ class Util {
           reject(new Error(`Network error: ${xhr.status} - ${xhr.statusText}`));
         }
       };
-      xhr.onerror = () =>
-        reject(new Error(`Network error: ${xhr.status} - ${xhr.statusText}`));
+      xhr.onerror = () => reject(new Error(`Network error: ${xhr.status} - ${xhr.statusText}`));
       xhr.send(json);
     });
   }

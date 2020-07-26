@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap&family=Roboto&family=Comic+Neue");
+
+:root {
+  --white-color: #ffffff;
+  --bg-white-color: #eceff3;
+  --hover-white-color: #dde0e6;
+  --black-color: #050505;
+  --font-color: #585757;
+  --font-light-color: #9b9797;
+
+  --green-color: #6aa84f;
+  --blue-color: #7b95e0;
+  --pink-color: #fabfbf;
+  --error-color: #ee4e4e;
+  --error-big-color: antiquewhite;
+
+  --p-font-size: 16px;
+  --p-font-weight: lighter;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-white-color);
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+body * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-family: "Lato", "Comic", "Roboto", sans-serif, Verdana, Arial, "Helvetica", "Helvetica Neue";
+}
