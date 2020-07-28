@@ -1,5 +1,4 @@
 const Sender = require("../../domain/model/sender");
-const cnf = { service: "gmail", auth: { user: "ahma6d@gmail.com", pass: "rsbaoszwbvlxtccg" } };
 
 class MailResolver {
   constructor(router, mailer, config) {
