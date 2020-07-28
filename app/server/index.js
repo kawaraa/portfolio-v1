@@ -9,7 +9,7 @@ const MailResolver = require("./infrastructure/resolver/mail-resolver");
 const config = require("./config/config.json");
 
 module.exports = (router) => {
-  const MAIL_CONFIG = process.env.MAIL_CONFIG || config.nodemailer;
+  const MAIL_CONFIG = process.env.MAIL_CONFIG ? JSON.parse(process.env.MAIL_CONFIG) : config.nodemailer;
 
   const mysqlProvider = new MysqlDatabaseProvider(mysql, promisify, config.mysql);
   const projectRepository = new ProjectRepository(mysqlProvider, config.projectRepository);
