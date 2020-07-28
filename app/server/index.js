@@ -9,10 +9,12 @@ const MailResolver = require("./infrastructure/resolver/mail-resolver");
 const config = require("./config/config.json");
 
 module.exports = (router) => {
+  const MAIL_CONFIG = process.env.MAIL_CONFIG || config.nodemailer;
+
   const mysqlProvider = new MysqlDatabaseProvider(mysql, promisify, config.mysql);
   const projectRepository = new ProjectRepository(mysqlProvider, config.projectRepository);
   const projectResolver = new ProjectResolver(router, projectRepository);
-  const mailResolver = new MailResolver(router, nodemailer, config.nodemailer);
+  const mailResolver = new MailResolver(router, nodemailer, MAIL_CONFIG);
 
   projectResolver.resolve();
   mailResolver.resolve();

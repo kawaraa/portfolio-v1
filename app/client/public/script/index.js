@@ -137,7 +137,7 @@ document.getElementById("deadline").addEventListener("input", showValue);
 const submitResponse = document.getElementById("submit-response");
 document.getElementById("contact-form").addEventListener("submit", (e) => {
   e.preventDefault();
-  const form = JSON.stringify({
+  const data = JSON.stringify({
     name: e.target.name.value,
     email: e.target.email.value,
     organization: e.target.organization.value,
@@ -146,21 +146,23 @@ document.getElementById("contact-form").addEventListener("submit", (e) => {
     deadline: e.target.deadline.value,
     message: e.target.message.value,
   });
-  Util.postJSON("contact", form)
+  Util.postJSON("/api/contact", data)
     .then((res) => {
       e.target.style.display = "none";
       submitResponse.style.display = "block";
-      document.getElementById("response-h2").innerHTML = res;
+      document.getElementById("response-h2").innerHTML =
+        "Thanks for contacting me!<br />I will contact you back very soon.";
     })
     .catch((err) => {
       e.target.style.display = "none";
       submitResponse.style.display = "block";
       document.getElementById("response-h2").innerHTML = "Something wrong happened, Please try again!";
     });
-  setTimeout(() => (location.hash = "#intro"), 1000);
+
+  setTimeout(() => (location.hash = "#intro"), 4000);
   setTimeout(() => {
     e.target.style.display = "block";
     submitResponse.style.display = "none";
     e.target.reset();
-  }, 2000);
+  }, 6000);
 });

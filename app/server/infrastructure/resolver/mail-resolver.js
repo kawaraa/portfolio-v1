@@ -1,29 +1,30 @@
-const cnf = { service: "gmail", auth: { user: "ahma6d@gmail.com", pass: "xgeansxbhhfyyifb" } };
+const Sender = require("../../domain/model/sender");
+const cnf = { service: "gmail", auth: { user: "ahma6d@gmail.com", pass: "rsbaoszwbvlxtccg" } };
 
 class MailResolver {
   constructor(router, mailer, config) {
     this.router = router;
-    this.config = config;
-    this.transporter = mailer.createTransport(cnf);
+    this.transporter = mailer.createTransport(config);
+    this.mailOptions = {
+      from: '"Portfolio Contact" <contact@kawaraa.com>', // sender address
+      to: "info@kawaraa.com", // list of receivers
+      subject: "", // Subject line
+      html: "", // html body
+    };
   }
   resolve() {
     this.router.post("/contact", this.send.bind(this));
   }
 
   async send(request, response) {
-    const template = this.getHtmlTemplate(request.body);
+    const sender = new Sender(request.body);
+    this.mailOptions.html = this.getHtmlTemplate(sender);
+    this.mailOptions.subject = sender.need;
 
-    const mailOptions = {
-      from: '"Portfolio Contact" <contact@kawaraa.com>', // sender address
-      to: "info@kawaraa.com", // list of receivers
-      subject: form.need, // Subject line
-      html: template, // html body
-    };
-    this.transporter.sendMail(mailOptions, (error, info) => {
+    this.transporter.sendMail(this.mailOptions, (error, info) => {
       if (error) response.status(500).end(error.message);
-
       console.error("Message sent: " + info.messageId);
-      response.send("Thanks for contacting me!<br />I will contact you back very soon.");
+      response.json({ success: true });
     });
   }
 
