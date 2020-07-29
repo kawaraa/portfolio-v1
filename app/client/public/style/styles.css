@@ -286,12 +286,13 @@ canvas {
   text-align: center;
   padding: 10px;
 }
-.priorities > i {
-  background: #59bd7f;
+.priorities > .priority-img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  padding: 0;
   border-radius: 50%;
-  font-size: 50px;
-  padding: 15px;
-  color: white;
 }
 .priorities > h3 {
   font-size: 24px;
