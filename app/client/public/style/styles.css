@@ -262,8 +262,9 @@ canvas {
   color: #1c1e27;
 }
 #about-me > h1 {
+  font-size: 35px;
   padding: 0;
-  margin: 30px 0 50px 0;
+  margin: 30px 0 15px 0;
 }
 #about-me > p {
   font-size: 23px;
