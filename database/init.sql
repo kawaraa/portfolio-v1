@@ -7,14 +7,20 @@ CREATE TABLE IF NOT EXISTS `project` (
   `title` VARCHAR(255) NOT NULL,
   `link` VARCHAR(255) UNIQUE NOT NULL,
   `technology` TEXT NOT NULL,
-  `starsRate` INT,
-  `views` INT,
   PRIMARY KEY(id)
 );
 
-INSERT INTO `project` VALUES(0, `Project title`, `https://kawaraa.com`, `html, css, javascript, nodejs`, 0, 0)
-INSERT INTO `project` VALUES(0, `Project title`, `https://hobby-projects.apps.us-east-1.starter.openshift-online.com`, `html, css, javascript, react, nodejs,`, 0, 0)
-INSERT INTO `project` VALUES(0, `Project title`, `https://class17hackyourestate.herokuapp.com`, `html, css, javascript, react, nodejs,`, 0, 0)
+
+CREATE TABLE IF NOT EXISTS `rate` (
+  `userId` VARCHAR(255),
+  `stars` DECIMAL(1, 1) NOT NULL,
+  PRIMARY KEY(userId)
+);
+
+
+INSERT INTO `project` VALUES(0, `Kawara Portfolio`, `https://kawaraa.com`, `html, css, javascript, nodejs`, 0, 0);
+INSERT INTO `project` VALUES(0, `LetsDoHobby App`, `https://hobby.kawaraa.com`, `html, css, javascript, react, nodejs,`, 0, 0);
+INSERT INTO `project` VALUES(0, `Graduation Project`, `https://class17hackyourestate.herokuapp.com`, `html, css, javascript, react, nodejs,`, 0, 0);
 
 -- technology = ["html", "css", "javascript", "react", "nodejs", "typescript", "wordpress"]
 

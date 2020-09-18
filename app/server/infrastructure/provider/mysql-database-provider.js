@@ -8,11 +8,19 @@ class MysqlDatabaseProvider {
   }
 
   initialize() {
-    this.config.host = process.env.MARIADB_SERVICE_HOST || this.config.host;
-    this.config.port = process.env.MARIADB_SERVICE_PORT || this.config.port;
-    this.config.user = process.env.MARIADB_USER || this.config.user;
-    this.config.password = process.env.MARIADB_PASSWORD || this.config.password;
-    this._connection = this.mysql.createConnection(this.config);
+    const { DB_SOCKET_PATH, CLOUD_SQL_CONNECTION_NAME, DB_HOST, DB_PORT, DB_USER, DB_PASS } = process.env;
+
+    if (DB_SOCKET_PATH && DB_SOCKET_PATH) {
+      this.config.socketPath = DB_SOCKET_PATH ? DB_SOCKET_PATH + CLOUD_SQL_CONNECTION_NAME : this.config.host;
+    } else {
+      this.config.host = DB_HOST || this.config.host;
+      this.config.port = DB_PORT || this.config.port;
+    }
+
+    this.config.user = DB_USER || this.config.user;
+    this.config.password = DB_PASS || this.config.password;
+    // this._connection = this.mysql.createConnection(this.config);
+    this._connection = this.mysql.createPool(this.config); // pool connections
     this.query = this.promisify(this._connection.query.bind(this._connection));
   }
 }
