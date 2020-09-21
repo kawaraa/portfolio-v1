@@ -1,9 +1,10 @@
 const config = require("./config.json");
 
 module.exports = () => {
-  const { NODE_ENV, DB_HOST, DB_PORT, DB_USER, DB_PASS, NODEMAILER } = process.env;
+  const { NODE_ENV, PORT, DB_HOST, DB_PORT, DB_USER, DB_PASS, NODEMAILER } = process.env;
 
   // if(NODE_ENV !== "production")
+  config.port = PORT || config.port;
   config.publicDir = process.cwd() + config.publicDir;
 
   // MySQL Database
@@ -14,4 +15,5 @@ module.exports = () => {
 
   // Nodemailer
   config.nodemailer = NODEMAILER ? JSON.parse(NODEMAILER) : config.nodemailer;
+  return config;
 };

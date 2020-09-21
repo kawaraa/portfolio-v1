@@ -7,8 +7,7 @@ const getApiRouter = require("./server/index.js");
   try {
     const config = getConfig();
     const app = express();
-    const apiRouter = getApiRouter(express.Router());
-    const PORT = process.env.PORT || 3000;
+    const apiRouter = getApiRouter(express.Router(), config);
 
     app.set("trust proxy", true);
     app.use(express.json());
@@ -20,7 +19,7 @@ const getApiRouter = require("./server/index.js");
 
     app.use("*", (request, response) => response.status(404).end());
 
-    app.listen(PORT, (err) => console.log(`App running on http://localhost:${PORT}`));
+    app.listen(config.port, (err) => console.log(`App running on http://localhost:${config.port}`));
   } catch (error) {
     console.error(error);
   }
