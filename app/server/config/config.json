@@ -1,5 +1,6 @@
 {
   "port": 3000,
+  "publicDir": "/client/public",
   "mysql": {
     "host": "database",
     "port": 3306,

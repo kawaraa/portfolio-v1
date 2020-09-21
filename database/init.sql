@@ -18,9 +18,9 @@ CREATE TABLE IF NOT EXISTS `rate` (
 );
 
 
-INSERT INTO `project` VALUES(0, `Kawara Portfolio`, `https://kawaraa.com`, `html, css, javascript, nodejs`, 0, 0);
-INSERT INTO `project` VALUES(0, `LetsDoHobby App`, `https://hobby.kawaraa.com`, `html, css, javascript, react, nodejs,`, 0, 0);
-INSERT INTO `project` VALUES(0, `Graduation Project`, `https://class17hackyourestate.herokuapp.com`, `html, css, javascript, react, nodejs,`, 0, 0);
+INSERT INTO `project` VALUES(0, `Kawara Portfolio`, `https://kawaraa.com`, `html, css, javascript, nodejs`);
+INSERT INTO `project` VALUES(0, `LetsDoHobby App`, `https://hobby.kawaraa.com`, `html, css, javascript, react, nodejs,`);
+INSERT INTO `project` VALUES(0, `Graduation Project`, `https://class17hackyourestate.herokuapp.com`, `html, css, javascript, react, nodejs,`);
 
 -- technology = ["html", "css", "javascript", "react", "nodejs", "typescript", "wordpress"]
 
