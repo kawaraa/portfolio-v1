@@ -45,25 +45,23 @@ function showHidList() {
 }
 
 function animateLinks() {
-  document.getElementById("social-media").style.left = "-50px";
   let navLinks = document.querySelectorAll(".nav-links");
   navLinks[0].style.animation = "nav-links-anim 1s ease 0.2s";
   navLinks[1].style.animation = "nav-links-anim 1s ease 0.1s";
   navLinks[2].style.animation = "nav-links-anim 1s ease ";
   navLinks[3].style.animation = "nav-links-anim 1s ease";
   let Klogo = document.getElementById("k-logo");
-  let awaraLogo = document.getElementById("awara-logo");
+  let logoLetters = document.getElementById("logo-letters");
   Klogo.style.animation = "logo 1s ease";
-  awaraLogo.style.animation = "logo 1s ease";
+  logoLetters.style.animation = "logo 1s ease";
   menuIcon.style.animation = "logo 1s ease";
   setTimeout(
     () =>
       navLinks.forEach((el) => {
         Klogo.style.animation = "none";
-        awaraLogo.style.animation = "none";
+        logoLetters.style.animation = "none";
         menuIcon.style.animation = "none";
         el.style.animation = null;
-        document.getElementById("social-media").style.left = "-38px";
       }),
     1400
   );
