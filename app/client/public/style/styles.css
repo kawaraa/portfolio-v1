@@ -215,16 +215,16 @@ canvas {
 /*===== Intro styles====*/
 #intro-hello {
   position: absolute;
-  z-index: 1;
   top: -20vh;
   left: 45%;
-  text-align: center;
   padding: 0;
+  font-size: 40px;
+  text-align: center;
+  z-index: 1;
   animation: hello 0.3s ease 1.6s forwards;
 }
 #introduction {
   position: relative;
-  z-index: 1;
   margin-top: 39vh;
   text-align: center;
   padding: 0 20%;
@@ -263,7 +263,7 @@ canvas {
   background: #cfcecf;
   color: #1c1e27;
 }
-#about-me > h1 {
+#about-me > h2 {
   font-size: 40px;
   padding: 0;
   margin: 30px 0 15px 0;
@@ -316,7 +316,7 @@ canvas {
 #skills {
   padding: 90px 30px;
 }
-#skills > h1 {
+#skills > h3 {
   font-size: 40px;
   padding: 0;
   margin: 0 0 60px 0;
@@ -355,7 +355,7 @@ canvas {
 }
 
 /*===== Portfolio styles====*/
-#projects-h1 {
+#projects-h4 {
   text-align: center;
   padding: 0;
   margin: 20vh 0 50px 0;
@@ -445,7 +445,7 @@ canvas {
 }
 
 /*===== Contact styles====*/
-.contact-h1 {
+.contact-h5 {
   text-align: center;
   color: #1c1e27;
   margin: 20vh 0 0 0;
@@ -705,7 +705,7 @@ input[type="text"]:valid + label {
   #about-me {
     padding: 30px 10%;
   }
-  #about-me > h1 {
+  #about-me > h2 {
     margin: 20px 0 30px 0;
   }
   #about-me > p {
@@ -774,7 +774,7 @@ input[type="text"]:valid + label {
   }
 
   /*===== Contact styles====*/
-  .contact-h1 {
+  .contact-h5 {
     font-size: 30px;
   }
   #contact-form {
@@ -978,7 +978,7 @@ input[type="text"]:valid + label {
     font-size: 28px;
   }
   #introduction {
-    margin-top: 40vh;
+    margin-top: 35vh;
     padding: 0 5%;
     font-size: 18px;
     line-height: 30px;
@@ -1051,7 +1051,7 @@ input[type="text"]:valid + label {
   #about-me {
     padding: 20px 5%;
   }
-  #about-me > h1 {
+  #about-me > h2 {
     margin: 20px 0 15px 0;
     font-size: 28px;
   }
@@ -1072,7 +1072,7 @@ input[type="text"]:valid + label {
   #skills {
     padding: 40px 20px;
   }
-  #skills > h1 {
+  #skills > h3 {
     margin: 0 0 40px 0;
   }
   #skills > h2 {
@@ -1090,7 +1090,7 @@ input[type="text"]:valid + label {
   }
 
   /*===== Portfolio styles====*/
-  #projects-h1 {
+  #projects-h4 {
     font-size: 28px;
   }
   #projects-categories {
@@ -1127,7 +1127,7 @@ input[type="text"]:valid + label {
   }
 
   /*===== Contact styles====*/
-  .contact-h1 {
+  .contact-h5 {
     font-size: 28px;
   }
   #contact-form {

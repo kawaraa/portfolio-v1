@@ -6,6 +6,8 @@ function typeText(ele, str, time) {
 }
 function typeIntroduction() {
   const introduction = document.getElementById("introduction");
+  introduction.innerHTML = "";
+  introduction.style.zIndex = "1";
   const txt = "My name is Armando Kawara. I'm a full stack web developer, Front-end as well as Back-end. ";
   let span = Util.createAppend("span", introduction);
   let time = typeText(span, txt, 2000);
