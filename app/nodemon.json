@@ -14,7 +14,7 @@
   "watch": [
     "client/*",
     "server/*",
-    "./app.js"
+    "app.js"
   ],
   "ext": "js,css,html"
 }

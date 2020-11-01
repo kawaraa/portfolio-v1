@@ -1,25 +1,29 @@
 "use strict";
-const getConfig = require("./server/config/get-config");
+require("./config/load-config")();
 const express = require("express");
 const getApiRouter = require("./server/index.js");
+const donateView = require("./client/view/donate.html");
 
 (async () => {
   try {
-    const config = getConfig();
     const app = express();
-    const apiRouter = getApiRouter(express.Router(), config);
+    const apiRouter = getApiRouter(express.Router());
 
     app.set("trust proxy", true);
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
-    app.use(express.static(config.publicDir));
+    app.use(express.static(env.publicDir));
     app.use("/api", apiRouter);
 
-    app.get("*", (request, response) => response.sendFile(config.publicDir + "/index.html"));
+    app.get("/donate", (request, response) => {
+      response.send(donateView(env.stripe.publicKey));
+    });
+
+    app.get("*", (request, response) => response.sendFile(env.publicDir + "/index.html"));
 
     app.use("*", (request, response) => response.status(404).end());
 
-    app.listen(config.port, (err) => console.log(`App running on http://localhost:${config.port}`));
+    app.listen(env.PORT, (err) => console.log(`App running on http://localhost:${env.PORT}`));
   } catch (error) {
     console.error(error);
   }

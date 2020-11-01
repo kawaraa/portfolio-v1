@@ -1,0 +1,17 @@
+body {
+  font-family: "Roboto", Arial, sans-serif;
+}
+/*==== Background ====*/
+.container {
+  max-width: 1200px;
+  margin: 0;
+  padding: 0;
+}
+.heading {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+/* ================== Mobile & Template styles =================== */
+@media only screen and (max-width: 850px) {
+}

@@ -1,7 +1,7 @@
 class ProjectRepository {
-  constructor(mySqlProvider, config) {
+  constructor(mySqlProvider) {
     this.mySqlProvider = mySqlProvider;
-    this.config = config;
+    this.config = env.projectRepository;
   }
 
   async getByTechnology(technology) {
