@@ -2,7 +2,7 @@
 require("./config/load-config")();
 const express = require("express");
 const getApiRouter = require("./server/index.js");
-const donateView = require("./client/view/donate.html");
+const englishBookView = require("./client/view/english-book.html");
 
 (async () => {
   try {
@@ -15,8 +15,8 @@ const donateView = require("./client/view/donate.html");
     app.use(express.static(env.publicDir));
     app.use("/api", apiRouter);
 
-    app.get("/donate", (request, response) => {
-      response.send(donateView(env.stripe.publicKey));
+    app.get("/english-book", (request, response) => {
+      response.send(englishBookView(env.STRIPE.publicKey));
     });
 
     app.get("*", (request, response) => response.sendFile(env.publicDir + "/index.html"));

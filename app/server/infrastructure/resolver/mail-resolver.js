@@ -3,7 +3,7 @@ const Sender = require("../../domain/model/sender");
 class MailResolver {
   constructor(router, mailer) {
     this.router = router;
-    this.transporter = mailer.createTransport(env.nodemailer);
+    this.transporter = mailer.createTransport(env.NODEMAILER);
     this.mailOptions = {
       from: '"Portfolio Contact" <contact@kawaraa.com>', // sender address
       to: "info@kawaraa.com", // list of receivers

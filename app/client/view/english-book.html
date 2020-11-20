@@ -1,0 +1,177 @@
+module.exports = (publicKey) => `
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap&family=Roboto&family=Comic+Neue" />
+    <link rel="stylesheet" type="text/css" href="/style/variables.css" />
+
+    <link rel="shortcut icon" type="image/ico" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/favicon/apple-180x180.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <meta name="description"
+      content="Kawara is a full stack web developer who does Front-end Back-end web development, Performance maintenance Fixing websites, Updating Editing websites." />
+    <meta name="keywords"
+      content="حمل اكثر 2000 مفردة إنجليزية مستخدمة، كتيب من الكلمات المستخدمة في اللغة الانجليزية مترجمة الى العربية فقط ب 1€ يورو" />
+    <meta name="author" content="Armando Kawara" />
+    <title>اكثر 2000 مفردة انجليزية مستخدمة | كتيب من الكلمات المستخدمة في الانجليزية مترجمة الى العربية</title>
+
+    <style>
+      /*==== Background ====*/
+      .book-caver-wrapper {
+        overflow: hidden;
+        width: 200px;
+        height: 200px;
+        margin: auto;
+        border-radius: 10px;
+      }
+
+      .book-caver {
+        width: 100%;
+        height: 100%;
+      }
+
+      .heading {
+        width: 80%;
+        margin: 0 auto;
+        padding: 0;
+        text-align: center;
+      }
+
+      .price {
+        display: block;
+      }
+
+      .amount {
+        color: dodgerblue;
+      }
+
+      .method-btns.wrapper {
+        width: 500px;
+        margin: 50px auto;
+      }
+
+      .method-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        margin: 10px 0;
+        font-size: 20px;
+        font-weight: bold;
+        background: var(--white-color);
+        color: var(--font-color);
+        border: none;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: ease box-shadow 0.2s;
+      }
+
+      .method-btn>img {
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+      }
+
+      #pay {
+        font-size: 30px;
+        font-weight: bolder;
+        color: rgb(1, 31, 116);
+      }
+
+      #pal {
+        font-size: 30px;
+        font-weight: bolder;
+        color: rgb(17, 136, 215);
+      }
+
+      .method-btn:hover {
+        box-shadow: 0 0 5px 0 var(--font-color);
+      }
+
+      /* ================== Mobile & Template styles =================== */
+      @media only screen and (max-width: 850px) {
+
+        .method-btns.wrapper {
+          width: 100%;
+          margin: 50px auto;
+          padding: 0 10px;
+        }
+
+        .heading {
+          width: 100%;
+          padding: 0 10px;
+          font-size: 24px;
+        }
+
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="outer-container">
+      <main class="container">
+        <div class="book-caver-wrapper"><img src="media/english-secrets.png" alt="English Secrets E-Book"
+            class="book-caver" /></div>
+
+        <h1 class="heading">كتيب من الكلمات المستخدمة في اللغة الانجليزية, يحتوي على اهم 3000 كلمة
+          باللغة الانجليزية مترجمة الى العربية <span class="price">حاليا فقط &nbsp;ب <span class="amount">1</span>
+            يورو</span>
+        </h1>
+
+
+        <div class="method-btns wrapper">
+          <button onclick="checkout(this)" class="method-btn"><img src="/media/bank-icon.svg" alt=""> Bank</button>
+
+          <a onclick="setLoading()" href="https://www.paypal.com/donate?hosted_button_id=WQRUQVH75W9CY"
+            class="method-btn paypal">
+            <span id="pay">Pay</span><span id="pal">pal</span>
+          </a>
+        </div>
+
+        <div id="smart-button-container">
+          <div style="text-align: center;">
+            <div id="paypal-button-container"></div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+    <div id="loading-container">
+      <div id="loading-icon"></div>
+    </div>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+      const stripe = Stripe("${publicKey}");
+
+      const checkout = async (e) => {
+        try {
+          setLoading()
+          const options = { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({}) }
+          const session = await fetch("/api/checkout/english-book", options).then((response) => response.json());
+          if (session.error) throw session.error
+          stripe.redirectToCheckout({ sessionId: session.id });
+        } catch (error) {
+          console.log(error);
+          // If redirectToCheckout fails due to a browser or network error, display error to your customer using error.message.
+          console.error("Error:", error.message);
+          if (error.error) return alert(result.error.message);
+          alert("Something wrong went, please try again later!");
+        }
+      };
+
+      function setLoading() {
+        document.getElementById("loading-container").style.display = "flex"
+      }
+    </script>
+  </body>
+
+</html>
+`

@@ -3,7 +3,7 @@ class MysqlDatabaseProvider {
   constructor(mysql, promisify) {
     this.mysql = mysql;
     this.promisify = promisify;
-    this.config = env.mysql;
+    this.config = env.MYSQL;
     this.initialize();
   }
 

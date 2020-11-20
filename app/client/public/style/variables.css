@@ -32,3 +32,41 @@ body * {
   -moz-box-sizing: border-box;
   font-family: "Lato", "Comic", "Roboto", sans-serif, Verdana, Arial, "Helvetica", "Helvetica Neue";
 }
+
+#loading-container {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgb(0, 0, 0, 0.2);
+}
+#loading-icon {
+  width: 100px;
+  height: 100px;
+  border: solid var(--font-color) 10px;
+  border-top-color: transparent;
+  border-radius: 100px;
+  -webkit-animation: loader 1s linear infinite;
+  animation: loader 1s linear infinite;
+}
+@-webkit-keyframes loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
