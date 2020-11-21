@@ -30,7 +30,7 @@ class AddMemberResolver {
   getHtmlTemplate() {
     return `
       <h2>عزيزي المستخدم, تمت عملية الشراء بنجاح, ستجد رابط الكتاب في هاذ البريد</h2>
-      <p>Google Drive الكتاب يفتح على اي جهاز, لان الملف موجود على منصة</p>
+      <p>Google Drive الكتاب يفتح على جميع الاجهزة, لان ملف الكتاب موجود على منصة</p>
       <h3>:طريقة الاستخدام</h3>
       <ol>
       <li>لتستفيد من عملية البحث في الكتاب <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.docs.editors.docs">Google Docs</a> اذا كنت تستخدم جهاز الموبايل, يمكنك تحميل برامج</li>
