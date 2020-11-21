@@ -28,19 +28,17 @@ class AddMemberResolver {
   }
 
   getHtmlTemplate() {
-    const contactInfo = `
+    return `
       <h2>عزيزي المستخدم, تمت عملية الشراء بنجاح, ستجد رابط الكتاب في هاذ البريد</h2>
-      <p><a href="https://google.com">اضغط هنا للذهاب الى الكتاب</a> :رابط الكتاب</p>
-      <p>Google Drive الجهاز يفتح على اي جهاز, لا الملف موجود على منصة</p>
-      <h4>:طريقة الاستخدام</h4>
+      <p>Google Drive الكتاب يفتح على اي جهاز, لان الملف موجود على منصة</p>
+      <h3>:طريقة الاستخدام</h3>
       <ol>
-      <li>.تاكد انك مسجل دخول الى حسابك جوجل من نفس الايميل الذي استخدمته عند الدفع</li>
-      <li>اذا كنت تستخدم جهاز بنظام اندرويد</li>
-      <li>اذا كنت تستخدم جهاز بنظام ايفون</li>
-      <li>اذا كنت تستخدم جهاز الكمبيوتر</li>
+      <li>لتستفيد من عملية البحث في الكتاب <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.docs.editors.docs">Google Docs</a> اذا كنت تستخدم جهاز الموبايل, يمكنك تحميل برامج</li>
+      <li><h4>
+      <a href="https://docs.google.com/document/d/1MIZ6iogQRz231OFBt5l4BGAwbRT4un2ROgYaOGNFcHs">اضغط هنا للذهاب الى الكتاب</a>
+      </h4></li>
       </ol>
     `;
-    return contactInfo;
   }
 }
 
