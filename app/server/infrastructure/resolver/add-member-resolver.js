@@ -6,7 +6,7 @@ class AddMemberResolver {
     this.transporter = mailer.createTransport(env.NODEMAILER);
     this.error = "<h1>Something went wrong, please try again later!</h1>";
     this.mailOptions = {
-      from: '"Portfolio Contact" <armandoshamo@gmail.com>', // sender address
+      from: '"Kawara" <contact@kawaraa.com>', // sender address
       to: "", // list of receivers
       subject: "تاكيد عملية الشراء", // Subject line
       html: "", // html body
