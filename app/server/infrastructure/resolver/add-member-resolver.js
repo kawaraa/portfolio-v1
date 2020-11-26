@@ -35,7 +35,7 @@ class AddMemberResolver {
       <ol>
       <li>لتستفيد من عملية البحث في الكتاب <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.docs.editors.docs">Google Docs</a> اذا كنت تستخدم جهاز الموبايل, يمكنك تحميل برامج</li>
       <li><h4>
-      <a href="https://docs.google.com/document/d/1MIZ6iogQRz231OFBt5l4BGAwbRT4un2ROgYaOGNFcHs">اضغط هنا للذهاب الى الكتاب</a>
+      <a href="https://docs.google.com/document/d/1J7n5Oy3yNom3wf8FM3E_Wm6pUD9IVIh_n4sXACV7X_M/edit?usp=sharing">اضغط هنا للذهاب الى الكتاب</a>
       </h4></li>
       </ol>
     `;
