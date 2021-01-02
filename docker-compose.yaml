@@ -17,7 +17,7 @@ services:
     container_name: app
     build: ./app/
     ports:
-      - 8080:8080
+      - 3000:3000
     volumes:
       - ./app:/app
     command: npm run dev
@@ -30,7 +30,7 @@ services:
     container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin
     ports:
-      - 8081:80
+      - 3001:80
     environment:
       PMA_HOST: database
     depends_on:

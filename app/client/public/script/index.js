@@ -104,7 +104,7 @@ function filterProjects(e) {
     case "all":
       active.style.left = "0px";
       break;
-    case "node.js":
+    case "nodejs":
       active.style.left = width / 6 + "px";
       break;
     case "javascript":
