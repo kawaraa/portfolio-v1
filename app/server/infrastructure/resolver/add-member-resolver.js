@@ -29,16 +29,18 @@ class AddMemberResolver {
 
   getHtmlTemplate() {
     return `
-      <h2>عزيزي المستخدم, تمت عملية الشراء بنجاح, ستجد رابط الكتاب في هاذ البريد</h2>
-      <p>Google Drive الكتاب يفتح على جميع الاجهزة, لان ملف الكتاب موجود على منصة</p>
-      <h3>:طريقة الاستخدام</h3>
+    <div dir="rtl">
+      <h2>عزيزي المستخدم, تمت عملية الشراء الكتاب بنجاح, ستجد رابط الكتاب في هاذ البريد</h2>
+      <p>الكتاب يفتح على جميع الاجهزة, لان ملف الكتاب موجود على منصة Google Drive</p>
+      <h3>طريقة الاستخدام:</h3>
       <ol>
-      <li>لتستفيد من عملية البحث في الكتاب <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.docs.editors.docs">Google Docs</a> اذا كنت تستخدم جهاز الموبايل, يمكنك تحميل برامج</li>
+      <li>اذا كنت تستخدم جهاز الموبايل, يمكنك تحميل برامج <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.docs.editors.docs">Google Docs</a> لتستفيد من عملية البحث في الكتاب</li>
       <li><h4>
       <a href="https://docs.google.com/document/d/1J7n5Oy3yNom3wf8FM3E_Wm6pUD9IVIh_n4sXACV7X_M/edit?usp=sharing">اضغط هنا للذهاب الى الكتاب</a>
-      <a href="https://youtube.com/playlist?list=PL7eo2mdxPTbp8I5ns4sBoV0Kp2AL5mSbX">اضغط هنا للذهاب الى قائمة الفيديوهات</a>
       </h4></li>
+      <li><h4><a href="https://youtube.com/playlist?list=PL7eo2mdxPTbp8I5ns4sBoV0Kp2AL5mSbX">اضغط هنا للذهاب الى قائمة الفيديوهات</a></h4></li>
       </ol>
+    </div>
     `;
   }
 }
