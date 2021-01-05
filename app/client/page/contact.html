@@ -1,0 +1,54 @@
+module.exports = () => `
+<div class="outer-container">
+  <section class="container">
+    <h5 class="contact-h5">Let's build something together!</h5>
+    <form id="contact-form">
+      <div class="form-boxes">
+        <input type="text" name="name" id="name" required />
+        <label for="name">Name</label>
+      </div>
+      <div class="form-boxes">
+        <input type="text" name="email" id="email" required />
+        <label for="email">Email Address</label>
+      </div>
+      <div class="form-boxes">
+        <input type="text" name="organization" id="organization" required />
+        <label for="organization">Company/Organization</label>
+      </div>
+      <div class="form-select">
+        <label for="job">I need to</label>
+        <select name="need" id="job">
+          <option value="Develop a Website" selected>Develop a website</option>
+          <option value="Design a Website">Design a website</option>
+          <option value="Update a Website">Update a website</option>
+          <option value="Hire">Hire</option>
+          <option value="A volunteer">A volunteer</option>
+          <option value="Enquire">Enquire</option>
+        </select>
+      </div>
+      <div class="form-range">
+        <label for="budget">Budget</label>
+        <div class="range">
+          <input type="range" name="budget" min="0" max="10000" value="500" id="budget" />
+          <span id="budget-holder">€500</span>
+        </div>
+      </div>
+      <div class="form-range">
+        <label for="deadline">Deadline</label>
+        <div class="range">
+          <input type="range" name="deadline" min="0" max="365" value="5" id="deadline" />
+          <span id="deadline-holder">5 Days</span>
+        </div>
+      </div>
+      <div class="form-textarea">
+        <textarea name="message" id="message" required></textarea>
+        <label for="message">Your Message</label>
+      </div>
+      <button type="submit" class="form-btn">Send</button>
+    </form>
+    <div id="submit-response">
+      <h2 id="response-h2"></h2>
+    </div>
+  </section>
+</div>
+`

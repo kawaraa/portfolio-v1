@@ -1,0 +1,41 @@
+const navbar = require("./layout/navbar.html");
+const footer = require("./layout/footer.html");
+
+module.exports = ( CONTENT, USER = {}, SIDE_MENU ) => `
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Kawara | Web Developer | Front-end Back-end development</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap&family=Roboto&family=Comic+Neue" />
+    <link rel="stylesheet" type="text/css" href="/style/variables.css" />
+    <link rel="stylesheet" type="text/css" href="/style/index.css" />
+    <link rel="shortcut icon" type="image/ico" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/favicon/apple-180x180.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <meta name="description"
+      content="Kawara is a full stack web developer who does Front-end Back-end web development, Performance maintenance Fixing websites, Updating Editing websites." />
+    <meta name="keywords"
+      content="Armando Kawara, A Kawara portfolio, Kawaraa web developer, Front-end web developer, Back-end web developer, Maintaining websites, Updating websites, Editing websites, Enhancing websites performance, Fixing websites, Creating SPA Single Web Page Application, Create Accessible websites With ARIA, Create responsive websites, Creating databases, Building a Restful API’s" />
+    <meta name="author" content="Armando Kawara" />
+  </head>
+
+  <body>
+    <!-- <script src="/script/utility.js"></script>
+      <script src="/script/index.js"></script>
+      <script src="/script/canvas.js"></script> -->
+
+    ${navbar(USER)}
+
+    ${CONTENT || ""}
+
+    ${footer(USER)}
+
+  </body>
+
+</html>
+`;

@@ -1,0 +1,69 @@
+module.exports = () => `
+<style>
+
+</style>
+
+<div class="outer-conainer">
+  <header class="container">
+    <h1 style="opacity: 0;position: absolute;">Kawara is a full stack web developer who does front-end and
+      beck-end development
+    </h1>
+    <p style="opacity: 0;position: absolute;">I love been web developer and like working in both areas,
+      front-end and beck-end
+      development.<br />I always like to do the thing in
+      professional and sustainable way.</p>
+    <canvas id="background"> </canvas>
+    <h3 id="intro-hello">Hello!</h3>
+    <h2 id="introduction">
+      <span>My name is Armando Kawara. I'm a full stack web developer, I do Front-end as well as Back-end
+        development.</span>
+      <span>Feel free to take a look at my work on </span>
+      <a href="#portfolio" class="gen-links">Portfolio</a>
+      <span>page. Enquires at </span>
+      <a href="mailto:info@kawaraa.com?Subject=Hello%20again" class="gen-links">info@kawaraa.com </a>
+    </h2>
+    <div id="social-media-wrapper">
+      <a href="https://www.linkedin.com/in/kawaraa" target="_blank" class="l">
+        <img src="/media/linkedin.png" loading="lazy" alt="Linkedin logo" class="social-media logo" />
+      </a>
+      <!-- <a href="https://facebook.com/" target="_blank" class="f" >
+                      <img src="/media/facebook.png" alt="Facebook logo" class="social-media logo" />
+                    </a> -->
+      <a href="https://github.com/kawaraa" target="_blank" class="g">
+        <img src="/media/github-logo.png" loading="lazy" alt="GitHub logo" class="social-media logo" />
+      </a>
+    </div>
+  </header>
+</div>
+
+<script>
+  function typeText(ele, str, time) {
+    Array.from(str).forEach((char) => setTimeout(() => (ele.innerHTML += char), (time += 50)));
+    return time;
+  }
+  function typeIntroduction() {
+    const introduction = document.getElementById("introduction");
+    introduction.innerHTML = "";
+    introduction.style.zIndex = "1";
+    const txt =
+      "My name is Armando Kawara. I'm a full stack web developer, I do Front-end as well as Back-end development. ";
+    let span = Util.createAppend("span", introduction);
+    let time = typeText(span, txt, 2000);
+    let span1 = Util.createAppend("span", introduction);
+    let time1 = typeText(span1, "Feel free to take a look at my work on ", time);
+    let a2 = Util.createAppend("a", introduction, {
+      href: "#portfolio",
+      class: "gen-links",
+    });
+    let time2 = typeText(a2, "Portfolio ", time1);
+    let span3 = Util.createAppend("span", introduction);
+    let time3 = typeText(span3, "page. Enquires at ", time2);
+    let a4 = Util.createAppend("a", introduction, {
+      href: "mailto:info@kawaraa.com?Subject=Hello%20again",
+      class: "gen-links",
+    });
+    typeText(a4, "info@kawaraa.com ", time3);
+  }
+  typeIntroduction();
+</script>
+`

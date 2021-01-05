@@ -1,0 +1,68 @@
+module.exports = (user) => `
+<style>
+  /* =============== Desktop & Notebook styles =============== */
+
+
+  /* =============== Mobile & Tablet styles =============== */
+  @media screen and (max-width: 850px) {}
+</style>
+
+<div class="navbar-outer-container">
+  <nav class="navbar container no-line" title="navigation bar" tabindex="0">
+    <div class="navbar icon wrapper" onclick="myFunction(this)">
+      <div class="icon-bar1"></div>
+      <div class="icon-bar2"></div>
+      <div class="icon-bar3"></div>
+    </div>
+
+    <ul id="navbar-list" class="no-line">
+      <li class="navbar item"><a href="/" class="navbar link no-line">Home</a></li>
+      <li class="navbar item"><a href="/find-us/" class="navbar link no-line">Find us</a></li>
+      <li class="navbar item"><a href="/features/" class="navbar link no-line">Features</a></li>
+      <li class="navbar item"><a href="/explore/" class="navbar link no-line">Explore Channels</a></li>
+      <li class="navbar item"><a href="/categories/" class="navbar link no-line">Articles</a></li>
+      <li class="navbar item"><a href="/help/" class="navbar link no-line">Help</a></li>
+    </ul>
+
+    <div class="user-links-wrapper">
+      ${user ? "" : ` <a href="${env.DOMAIN}/sign-up/" class="navbar link signup no-line">Signup</a>
+      `}
+
+      ${user ? "" : ` <a href="${env.DOMAIN}/login/" class="navbar link login no-line">
+        Login</a>
+      `}
+
+      ${!user? "":`<a href="${env.DOMAIN}/">Profile</a>`}
+    </div>
+  </nav>
+
+
+  <a href="/" id="k-logo">K</a>
+  <a href="/" id="logo-letters">awara</a>
+  <nav id="nav-bar">
+    <a href="/" class="nav-links">Home</a>
+    <a href="/about" class="nav-links">About</a>
+    <a href="/projects" class="nav-links">Portfolio</a>
+    <a href="/contact" class="nav-links">Contact</a>
+  </nav>
+  <nav id="drop-menu-cont">
+    <ul id="drop-list">
+      <li><a href="/" class="list-links">Home</a></li>
+      <li><a href="/about" class="list-links">About</a></li>
+      <li><a href="/portfolio" class="list-links">Portfolio</a></li>
+      <li><a href="/contact" class="list-links">Contact</a></li>
+    </ul>
+    <div id="menu-icon" class="m-icon">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </nav>
+
+  <script>
+    function myFunction(x) {
+      x.classList.toggle("change");
+    }
+  </script>
+</div>
+`;

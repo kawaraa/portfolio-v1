@@ -26,17 +26,18 @@ canvas {
   height: 100vh;
   background: #1c1e27;
   color: #cfcecf;
+  overflow: scroll;
 }
 .containers {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   overflow: auto;
 }
 #about,
 #portfolio,
 #contact {
-  display: none;
+  display: scroll;
 }
 #intro {
   text-align: center;
@@ -410,6 +411,7 @@ canvas {
 }
 .frames-imgs {
   width: 100%;
+  border: none;
   transition: 0.3s;
 }
 .view-btns {
