@@ -1,54 +1,168 @@
 module.exports = () => `
-<div class="outer-container">
-  <section class="container">
-    <h5 class="contact-h5">Let's build something together!</h5>
-    <form id="contact-form">
-      <div class="form-boxes">
-        <input type="text" name="name" id="name" required />
-        <label for="name">Name</label>
-      </div>
-      <div class="form-boxes">
-        <input type="text" name="email" id="email" required />
-        <label for="email">Email Address</label>
-      </div>
-      <div class="form-boxes">
-        <input type="text" name="organization" id="organization" required />
-        <label for="organization">Company/Organization</label>
-      </div>
-      <div class="form-select">
-        <label for="job">I need to</label>
-        <select name="need" id="job">
-          <option value="Develop a Website" selected>Develop a website</option>
-          <option value="Design a Website">Design a website</option>
-          <option value="Update a Website">Update a website</option>
-          <option value="Hire">Hire</option>
-          <option value="A volunteer">A volunteer</option>
-          <option value="Enquire">Enquire</option>
-        </select>
-      </div>
-      <div class="form-range">
-        <label for="budget">Budget</label>
-        <div class="range">
-          <input type="range" name="budget" min="0" max="10000" value="500" id="budget" />
-          <span id="budget-holder">€500</span>
-        </div>
-      </div>
-      <div class="form-range">
-        <label for="deadline">Deadline</label>
-        <div class="range">
-          <input type="range" name="deadline" min="0" max="365" value="5" id="deadline" />
-          <span id="deadline-holder">5 Days</span>
-        </div>
-      </div>
-      <div class="form-textarea">
-        <textarea name="message" id="message" required></textarea>
-        <label for="message">Your Message</label>
-      </div>
-      <button type="submit" class="form-btn">Send</button>
-    </form>
-    <div id="submit-response">
-      <h2 id="response-h2"></h2>
+
+<style>
+  .container.contact * {
+    color: white;
+  }
+
+  .form-boxes>input {
+    background: #00000033;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .form-boxes>label {
+    top: 10px;
+    left: 10px;
+    font-size: 22px;
+  }
+
+  .form-select>label {
+    margin: 0 0 10px 3px;
+    font-size: 22px;
+  }
+
+  input[type="text"]:focus+label,
+  input[type="text"]:valid+label {
+    font-size: 20px;
+    left: 3px;
+  }
+
+  #job {
+    background: #00000033;
+    border-radius: 5px;
+  }
+
+  .range {
+    background: #00000033;
+    border-radius: 5px;
+    padding: 10px 10px 4px 10px;
+  }
+
+  #budget,
+  #deadline {
+    flex: 8;
+  }
+
+  #budget-holder,
+  #deadline-holder {
+    flex: 2;
+  }
+
+  #message {
+    background: #00000033;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .form-textarea>label {
+    top: 10px;
+    left: 5px;
+    font-size: 22px;
+  }
+
+  #message:focus+label,
+  #message:valid+label {
+    font-size: 20px;
+    left: 3px;
+  }
+
+  .form-btn {
+    width: 200px;
+    padding: 20px;
+    border: 2px red solid;
+    background: none;
+    font-size: 20px;
+    transition: 0.2s ease;
+    border-radius: 100px;
+  }
+
+  .form-btn:hover {
+    background: cornflowerblue;
+    border: 2px cornflowerblue solid;
+    color: white;
+  }
+
+  /* =============== Mobile & Tablet styles =============== */
+  @media screen and (max-width: 850px) {
+    .contact-h5 {
+      margin-top: 5vh;
+    }
+
+    #contact-form {
+      margin-top: 50px;
+    }
+
+    .form-btn {
+      width: 150px;
+      padding: 15px;
+      font-size: 20px;
+      margin: auto;
+    }
+  }
+</style>
+
+
+<section class="container contact">
+  <h5 class="contact-h5">Let's build something together!</h5>
+  <form id="contact-form">
+    <div class="form-boxes">
+      <input type="text" name="name" id="name" required />
+      <label for="name">Name</label>
     </div>
-  </section>
-</div>
+    <div class="form-boxes">
+      <input type="text" name="email" id="email" required />
+      <label for="email">Email Address</label>
+    </div>
+    <div class="form-boxes">
+      <input type="text" name="organization" id="organization" required />
+      <label for="organization">Company/Organization</label>
+    </div>
+    <div class="form-select">
+      <label for="job">I need to</label>
+      <select name="need" id="job">
+        <option value="Develop a Website" selected>Develop a website</option>
+        <option value="Design a Website">Design a website</option>
+        <option value="Update a Website">Update a website</option>
+        <option value="Hire">Hire</option>
+        <option value="A volunteer">A volunteer</option>
+        <option value="Enquire">Enquire</option>
+      </select>
+    </div>
+    <div class="form-range">
+      <label for="budget">Budget</label>
+      <div class="range">
+        <input type="range" name="budget" min="0" max="10000" value="500" id="budget" />
+        <span id="budget-holder">€500</span>
+      </div>
+    </div>
+    <div class="form-range">
+      <label for="deadline">Deadline</label>
+      <div class="range">
+        <input type="range" name="deadline" min="0" max="365" value="5" id="deadline" />
+        <span id="deadline-holder">5 Days</span>
+      </div>
+    </div>
+    <div class="form-textarea">
+      <textarea name="message" id="message" required></textarea>
+      <label for="message">Your Message</label>
+    </div>
+    <button type="submit" class="form-btn">Send</button>
+  </form>
+  <div id="submit-response">
+    <h2 id="response-h2"></h2>
+  </div>
+</section>
+
+<script>
+  function showValue(e) {
+    if (e.target.name === "budget") {
+      document.getElementById("budget-holder").innerHTML = "€" + e.target.value;
+    } else {
+      document.getElementById("deadline-holder").innerHTML = e.target.value + " Days";
+    }
+  }
+  document.getElementById("budget").addEventListener("input", showValue);
+  document.getElementById("deadline").addEventListener("input", showValue);
+</script>
 `

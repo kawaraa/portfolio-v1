@@ -1,5 +1,34 @@
 "use strict";
 
+function typeText(ele, str, time) {
+  Array.from(str).forEach((char) => setTimeout(() => (ele.innerHTML += char), (time += 50)));
+  return time;
+}
+function typeIntroduction() {
+  const introduction = document.getElementById("introduction");
+  introduction.innerHTML = "";
+  introduction.style.zIndex = "1";
+  const txt =
+    "My name is Armando Kawara. I'm a full stack web developer, I do Front-end as well as Back-end development. ";
+  let span = Util.createAppend("span", introduction);
+  let time = typeText(span, txt, 2000);
+  let span1 = Util.createAppend("span", introduction);
+  let time1 = typeText(span1, "Feel free to take a look at my work on ", time);
+  let a2 = Util.createAppend("a", introduction, {
+    href: "#portfolio",
+    class: "gen-links",
+  });
+  let time2 = typeText(a2, "Portfolio ", time1);
+  let span3 = Util.createAppend("span", introduction);
+  let time3 = typeText(span3, "page. Enquires at ", time2);
+  let a4 = Util.createAppend("a", introduction, {
+    href: "mailto:info@kawaraa.com?Subject=Hello%20again",
+    class: "gen-links",
+  });
+  typeText(a4, "info@kawaraa.com ", time3);
+}
+typeIntroduction();
+
 const listLinks = document.querySelectorAll(".list-links");
 listLinks.forEach((el) => el.addEventListener("click", showHidList));
 document.getElementById("menu-icon").addEventListener("click", showHidList);
@@ -40,6 +69,61 @@ function animateLinks() {
     1400
   );
 }
+
+function renderProjects(techName) {
+  const container = document.getElementById("projects-results");
+  container.innerHTML = " ";
+
+  Util.fetchJSON("/api/project/" + techName)
+    .then((projects) => {
+      if (!projects[0]) return;
+      projects.forEach((project) => {
+        let div = Util.createAppend("div", container, { class: "frames" });
+        console.log(project.link);
+        Util.createAppend("iframe", div, {
+          src: project.link,
+          class: "frames-imgs",
+        });
+        Util.createAppend("a", div, {
+          href: project.link,
+          target: "_blank",
+          txt: "View",
+          class: "view-btns",
+        });
+      });
+    })
+    .catch(console.error);
+}
+
+function filterProjects(e) {
+  let width = document.getElementById("projects-categories").offsetWidth;
+  let active = document.getElementById("active-category");
+  renderProjects(e.target.name);
+
+  switch (e.target.name) {
+    case "all":
+      active.style.left = "0px";
+      break;
+    case "nodejs":
+      active.style.left = width / 6 + "px";
+      break;
+    case "javascript":
+      active.style.left = width / 3 + "px";
+      break;
+    case "react":
+      active.style.left = width / 2 + "px";
+      break;
+    case "css":
+      active.style.left = (width / 6) * 4 + "px";
+      break;
+    case "typescript":
+      active.style.left = (width / 6) * 5 + "px";
+      break;
+  }
+}
+document.querySelectorAll("#projects-categories .btns").forEach((el) => {
+  el.addEventListener("click", filterProjects);
+});
 
 function showValue(e) {
   if (e.target.name === "budget") {

@@ -1,68 +1,177 @@
 module.exports = (user) => `
 <style>
   /* =============== Desktop & Notebook styles =============== */
+  .navbar-outer-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: #00000033;
+    height: 60px;
+    z-index: 10;
+    transition: 0.5s ease;
+  }
 
+  .navbar.container {
+    position: relative;
+    display: flex;
+    padding: 0;
+  }
+
+  .navbar.logo {
+    position: absolute;
+    top: 9px;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    font-weight: bolder;
+    color: #1c1e27;
+    border-radius: 100%;
+  }
+
+  .navbar.logo-letters {
+    position: absolute;
+    top: 16px;
+    left: 28px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #51bfff;
+    text-decoration: none;
+    font-family: "Muli", sans-serif;
+    letter-spacing: 2px;
+  }
+
+  .navbar.drop-menu {
+    overflow: hidden;
+    list-style: none;
+    flex: auto;
+    display: flex;
+    justify-content: flex-end;
+    height: 60px;
+  }
+
+
+  .navbar.link {
+    text-decoration: none;
+    display: block;
+    padding: 18px 20px;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    transition: 0.2s;
+  }
+
+  .navbar.link:hover {
+    background: cornflowerblue;
+    color: white;
+  }
+
+  .navbar.icon.wrapper {
+    display: none;
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    cursor: pointer;
+  }
+
+  .nav-icon-bar1,
+  .nav-icon-bar2,
+  .nav-icon-bar3 {
+    position: relative;
+    background: #1c1e27;
+    width: 35px;
+    height: 4px;
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: 0.3s ease;
+  }
+
+  .x-icon .nav-icon-bar1 {
+    transform: rotate(-45deg) translate(-6px, 7px);
+  }
+
+  .x-icon .nav-icon-bar2 {
+    opacity: 0;
+  }
+
+  .x-icon .nav-icon-bar3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
 
   /* =============== Mobile & Tablet styles =============== */
-  @media screen and (max-width: 850px) {}
+  @media screen and (max-width: 850px) {
+    .navbar-outer-container {
+      height: 50px;
+    }
+
+    .navbar.logo {
+      top: 6px;
+    }
+
+    .navbar.logo-letters {
+      top: 15px;
+      font-size: 22px;
+    }
+
+    .navbar.drop-menu {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      flex-flow: column;
+      justify-content: center;
+      background: #dde0e6;
+      transition: 0.5s ease;
+    }
+
+    .navbar.drop-menu.drop-down {
+      height: 100vh;
+    }
+
+    .navbar.link {
+      color: #1c1e27;
+      font-size: 30px;
+    }
+
+    .navbar.icon.wrapper {
+      display: block;
+    }
+
+  }
 </style>
 
 <div class="navbar-outer-container">
   <nav class="navbar container no-line" title="navigation bar" tabindex="0">
+    <a href="/v-1" class="navbar logo">K</a>
+    <a href="/v-1" class="navbar logo-letters">awara</a>
+
+    <ul class="navbar drop-menu">
+      <li class="navbar item"><a href="/v-1" class="navbar link">Home</a></li>
+      <li class="navbar item"><a href="/v-1/about" class="navbar link">About</a></li>
+      <li class="navbar item"><a href="/v-1/skills" class="navbar link">Skills</a></li>
+      <li class="navbar item"><a href="/v-1/work" class="navbar link">Work</a></li>
+      <li class="navbar item"><a href="/v-1/contact" class="navbar link">Contact</a></li>
+    </ul>
+
     <div class="navbar icon wrapper" onclick="myFunction(this)">
-      <div class="icon-bar1"></div>
-      <div class="icon-bar2"></div>
-      <div class="icon-bar3"></div>
-    </div>
-
-    <ul id="navbar-list" class="no-line">
-      <li class="navbar item"><a href="/" class="navbar link no-line">Home</a></li>
-      <li class="navbar item"><a href="/find-us/" class="navbar link no-line">Find us</a></li>
-      <li class="navbar item"><a href="/features/" class="navbar link no-line">Features</a></li>
-      <li class="navbar item"><a href="/explore/" class="navbar link no-line">Explore Channels</a></li>
-      <li class="navbar item"><a href="/categories/" class="navbar link no-line">Articles</a></li>
-      <li class="navbar item"><a href="/help/" class="navbar link no-line">Help</a></li>
-    </ul>
-
-    <div class="user-links-wrapper">
-      ${user ? "" : ` <a href="${env.DOMAIN}/sign-up/" class="navbar link signup no-line">Signup</a>
-      `}
-
-      ${user ? "" : ` <a href="${env.DOMAIN}/login/" class="navbar link login no-line">
-        Login</a>
-      `}
-
-      ${!user? "":`<a href="${env.DOMAIN}/">Profile</a>`}
+      <div class="nav-icon-bar1"></div>
+      <div class="nav-icon-bar2"></div>
+      <div class="nav-icon-bar3"></div>
     </div>
   </nav>
 
-
-  <a href="/" id="k-logo">K</a>
-  <a href="/" id="logo-letters">awara</a>
-  <nav id="nav-bar">
-    <a href="/" class="nav-links">Home</a>
-    <a href="/about" class="nav-links">About</a>
-    <a href="/projects" class="nav-links">Portfolio</a>
-    <a href="/contact" class="nav-links">Contact</a>
-  </nav>
-  <nav id="drop-menu-cont">
-    <ul id="drop-list">
-      <li><a href="/" class="list-links">Home</a></li>
-      <li><a href="/about" class="list-links">About</a></li>
-      <li><a href="/portfolio" class="list-links">Portfolio</a></li>
-      <li><a href="/contact" class="list-links">Contact</a></li>
-    </ul>
-    <div id="menu-icon" class="m-icon">
-      <div class="bar1"></div>
-      <div class="bar2"></div>
-      <div class="bar3"></div>
-    </div>
-  </nav>
-
-  <script>
-    function myFunction(x) {
-      x.classList.toggle("change");
-    }
-  </script>
 </div>
+
+<script>
+  const dropMenu = document.getElementsByClassName("navbar drop-menu")[0];
+
+  function myFunction(x) {
+    x.classList.toggle("x-icon");
+    dropMenu.classList.toggle("drop-down");
+  }
+</script>
 `;

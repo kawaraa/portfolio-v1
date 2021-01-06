@@ -1,0 +1,134 @@
+const navbar = require("./navbar.html");
+
+module.exports = ( CONTENT, USER = {}, SIDE_MENU ) => `
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Kawara | Web Developer | Front-end Back-end development</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap&family=Roboto&family=Comic+Neue" />
+    <link rel="stylesheet" type="text/css" href="/style/variables.css" />
+    <link rel="stylesheet" type="text/css" href="/style/index.css" />
+    <link rel="shortcut icon" type="image/ico" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/favicon/apple-180x180.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <meta name="description"
+      content="Kawara is a full stack web developer who does Front-end Back-end web development, Performance maintenance Fixing websites, Updating Editing websites." />
+    <meta name="keywords"
+      content="Armando Kawara, A Kawara portfolio, Kawaraa web developer, Front-end web developer, Back-end web developer, Maintaining websites, Updating websites, Editing websites, Enhancing websites performance, Fixing websites, Creating SPA Single Web Page Application, Create Accessible websites With ARIA, Create responsive websites, Creating databases, Building a Restful API’s" />
+    <meta name="author" content="Armando Kawara" />
+
+    <style>
+      /* white #e6e6fa #eceff3 */
+      body {
+        background: #00000033;
+      }
+
+      #root {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100Vh;
+        overflow: hidden;
+        background: url("/media/background.jpg");
+        transform: scale(0.1, 0.002);
+        animation: open-up 0.3s ease forwards;
+      }
+
+      .root-inner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100Vh;
+        background: #00000033;
+      }
+
+      #containers-wrapper {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding-top: 60px;
+        overflow: auto;
+      }
+
+      .container {
+        margin: 0 auto;
+        max-width: 1200px;
+        padding: 20px 5px;
+      }
+
+      @keyframes shut-down {
+        0% {
+          transform: scale(1, 1);
+        }
+
+        30% {
+          transform: scale(1, 0.002);
+        }
+
+        100% {
+          transform: scale(0.1, 0.002);
+        }
+      }
+
+      @keyframes open-up {
+        0% {
+          transform: scale(0.1, 0.002);
+        }
+
+        50% {
+          transform: scale(1, 0.002);
+        }
+
+        100% {
+          transform: scale(1, 1);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <script src="/script/utility.js"></script>
+
+    <div id="root">
+      <div class="root-inner">
+        ${navbar()}
+
+        <div id="containers-wrapper">
+          ${CONTENT || ""}
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const root = document.getElementById("root");
+      const containersWrapper = document.getElementById("containers-wrapper");
+      const navbar = document.getElementsByClassName("navbar-outer-container")[0];
+
+      let prevScroll = containersWrapper.scrollTop;
+      containersWrapper.onscroll = (e) => {
+        if (e.target.scrollTop < prevScroll) navbar.style.top = "0";
+        else navbar.style.top = "-" + navbar.offsetHeight + "px";
+        prevScroll = e.target.scrollTop;
+      };
+
+      function fetchContent(e) {
+        if (e.target.tagName === "A") root.style.animation = "shut-down 0.3s"
+        setTimeout(() => root.style.animation = "open-up 0.3s ease forwards", 900);
+      };
+
+      window.addEventListener("click", fetchContent);
+
+    </script>
+  </body>
+
+</html>
+`;
