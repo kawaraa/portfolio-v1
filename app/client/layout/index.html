@@ -37,7 +37,7 @@ module.exports = ( CONTENT, USER = {}, SIDE_MENU ) => `
         overflow: hidden;
         background: url("/media/background.jpg");
         transform: scale(0.1, 0.002);
-        animation: open-up 0.3s ease forwards;
+        animation: page-loading 0.3s ease infinite;
       }
 
       .root-inner {
@@ -62,6 +62,16 @@ module.exports = ( CONTENT, USER = {}, SIDE_MENU ) => `
         margin: 0 auto;
         max-width: 1200px;
         padding: 20px 5px;
+      }
+
+      @keyframes page-loading {
+        0% {
+          transform: scale(0.1, 0.002);
+        }
+
+        100% {
+          transform: scale(1, 0.002);
+        }
       }
 
       @keyframes shut-down {
@@ -126,6 +136,7 @@ module.exports = ( CONTENT, USER = {}, SIDE_MENU ) => `
       };
 
       window.addEventListener("click", fetchContent);
+      window.addEventListener("load", () => root.style.animation = "open-up 0.3s ease forwards");
 
     </script>
   </body>
