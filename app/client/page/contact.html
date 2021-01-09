@@ -83,6 +83,20 @@ module.exports = () => `
     color: white;
   }
 
+  #response-wrapper {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 35%;
+    font-size: 30px;
+    text-align: center;
+    background: #00000087;
+    z-index: 10;
+  }
+
   /* =============== Mobile & Tablet styles =============== */
   @media screen and (max-width: 850px) {
     .contact-h5 {
@@ -149,12 +163,11 @@ module.exports = () => `
     </div>
     <button type="submit" class="form-btn">Send</button>
   </form>
-  <div id="submit-response">
-    <h2 id="response-h2"></h2>
-  </div>
+  <div id="response-wrapper"></div>
 </section>
 
 <script>
+  const responseWrapper = document.getElementById("response-wrapper");
   function showValue(e) {
     if (e.target.name === "budget") {
       document.getElementById("budget-holder").innerHTML = "€" + e.target.value;
@@ -164,5 +177,34 @@ module.exports = () => `
   }
   document.getElementById("budget").addEventListener("input", showValue);
   document.getElementById("deadline").addEventListener("input", showValue);
+
+  document.getElementById("contact-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = JSON.stringify({
+      name: e.target.name.value,
+      email: e.target.email.value,
+      organization: e.target.organization.value,
+      need: e.target.need.value,
+      budget: e.target.budget.value,
+      deadline: e.target.deadline.value,
+      message: e.target.message.value,
+    });
+    Util.postJSON("/api/contact", data)
+      .then((res) => {
+        responseWrapper.style.display = "block";
+        responseWrapper.innerHTML =
+          "Thanks for contacting me!<br />I will contact you back very soon.";
+        setTimeout(() => {
+          responseWrapper.style.display = "none";
+          window.location.href = "/v-1"
+          e.target.reset();
+        }, 4000);
+      })
+      .catch((err) => {
+        responseWrapper.style.display = "block";
+        responseWrapper.innerHTML = "Something wrong happened, Please try again!";
+      });
+  });
+
 </script>
 `
