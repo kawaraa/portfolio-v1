@@ -6,7 +6,7 @@ class MailResolver {
     this.transporter = mailer.createTransport(env.NODEMAILER);
     this.mailOptions = {
       from: '"Portfolio Contact" <contact@kawaraa.com>', // sender address
-      to: "info@kawaraa.com", // list of receivers
+      to: env.NODEMAILER.receiver, // list of receivers
       subject: "", // Subject line
       html: "", // html body
     };
