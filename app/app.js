@@ -13,6 +13,9 @@ const englishBookView = require("./client/page/english-book.html");
 
     app.use((req, res, next) => {
       console.log("Headers ===> ", req.headers);
+      console.log("RemoteIpAddress ===> ", req.connection.remoteAddress);
+      console.log("ProxyIpAddress ===> ", req.headers["x-forwarded-for"]);
+
       next();
     });
 
@@ -35,4 +38,5 @@ const englishBookView = require("./client/page/english-book.html");
   } catch (error) {
     console.error(error);
   }
+  ``;
 })();
