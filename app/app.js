@@ -11,14 +11,7 @@ const englishBookView = require("./client/page/english-book.html");
     const apiRouter = getApiRouter(express.Router());
     const webRouter = getV1Router(express.Router());
 
-    app.use((req, res, next) => {
-      console.log("Headers ===> ", req.headers);
-      console.log("ProxyIpAddress ===> ", req.headers["x-forwarded-for"]);
-      console.log("ProxyIpAddress ===> ", req.headers["cf-ipcountry"]);
-      console.log("RemoteIpAddress ===> ", req.connection.remoteAddress);
-      console.log(req.headers.host);
-      next();
-    });
+    app.use((req, res, next) => next() + (req.country = req.headers["cf-ipcountry"] || "ALL"));
 
     app.set("trust proxy", true);
     app.use(express.json());
@@ -30,8 +23,6 @@ const englishBookView = require("./client/page/english-book.html");
     app.get("/english-book", (request, response) => {
       response.send(englishBookView(env.STRIPE.publicKey));
     });
-
-    app.get("*", (request, response) => response.sendFile(env.publicDir + "/index.html"));
 
     app.use("*", (request, response) => response.status(404).end("Not found(!)"));
 
