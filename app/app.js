@@ -11,6 +11,11 @@ const englishBookView = require("./client/page/english-book.html");
     const apiRouter = getApiRouter(express.Router());
     const webRouter = getV1Router(express.Router());
 
+    app.use((req, res, next) => {
+      console.log("Headers ===> ", req.headers);
+      next();
+    });
+
     app.set("trust proxy", true);
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
