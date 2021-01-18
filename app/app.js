@@ -19,9 +19,9 @@ const englishBookView = require("./client/page/english-book.html");
     app.use(express.static(env.publicDir));
     app.use("/api", apiRouter);
     app.use("/v-1", webRouter);
-    app.use("*", (req, res, next) => console.log(req.headers) + next());
 
     app.get("/english-book", (request, response) => {
+      console.log(request.headers);
       response.send(englishBookView(env.STRIPE.publicKey));
     });
 
