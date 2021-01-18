@@ -19,6 +19,7 @@ const englishBookView = require("./client/page/english-book.html");
     app.use(express.static(env.publicDir));
     app.use("/api", apiRouter);
     app.use("/v-1", webRouter);
+    app.use("*", (req, res, next) => console.log(req.headers) + next());
 
     app.get("/english-book", (request, response) => {
       response.send(englishBookView(env.STRIPE.publicKey));
@@ -30,5 +31,4 @@ const englishBookView = require("./client/page/english-book.html");
   } catch (error) {
     console.error(error);
   }
-  ``;
 })();
