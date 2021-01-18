@@ -21,7 +21,6 @@ const englishBookView = require("./client/page/english-book.html");
     app.use("/v-1", webRouter);
 
     app.get("/english-book", (request, response) => {
-      console.log(request.headers);
       response.send(englishBookView(env.STRIPE.publicKey));
     });
 
