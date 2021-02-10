@@ -27,7 +27,7 @@ class CheckoutResolver {
         ],
         mode: "payment",
         success_url: `${env.ORIGIN}/success.html`,
-        cancel_url: `${env.ORIGIN}/english-book.html`,
+        cancel_url: `${env.ORIGIN}/english-book`,
       });
 
       response.json({ id: session.id });
