@@ -16,15 +16,13 @@ const englishBookView = require("./client/page/english-book.html");
         req.country = null;
         const url = `https://get.geojs.io/v1/ip/country/${request.headers["x-forwarded-for"]}.json`;
         const res = await this.fetch(url).then((res) => res.json());
+        console.log("<<< Country >>>", res);
         if (res && res.country) req.country = res.country;
         next();
       } catch (error) {
+        console.log("<<< Country - Error >>>", res);
         next();
       }
-    });
-    app.use(async (req, res, next) => {
-      console.log("<<< Country >>>", req.country);
-      next();
     });
     app.set("trust proxy", true);
     app.use(express.json());
