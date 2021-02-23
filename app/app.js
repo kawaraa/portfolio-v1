@@ -11,7 +11,11 @@ const englishBookView = require("./client/page/english-book.html");
     const apiRouter = getApiRouter(express.Router());
     const webRouter = getV1Router(express.Router());
 
-    app.use((req, res, next) => next() + (req.country = req.headers["cf-ipcountry"] || "ALL"));
+    app.use((req, res, next) => {
+      console.log("<<<<< Headers >>>> \n", request.headers);
+      req.country = req.headers["cf-ipcountry"] || "ALL";
+      next();
+    });
 
     app.set("trust proxy", true);
     app.use(express.json());
