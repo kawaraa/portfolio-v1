@@ -12,7 +12,7 @@ const englishBookView = require("./client/page/english-book.html");
     const webRouter = getV1Router(express.Router());
 
     app.use((req, res, next) => {
-      console.log("<<<<< Headers >>>> \n", request.headers);
+      console.log("<<<<< Headers >>>> \n", req.headers);
       req.country = req.headers["cf-ipcountry"] || "ALL";
       next();
     });
