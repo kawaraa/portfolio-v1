@@ -21,7 +21,7 @@ const fetch = require("node-fetch");
         if (geo && geo.country) req.country = geo.country;
         next();
       } catch (error) {
-        console.log("<<< Country - Error >>>", error, geo);
+        console.log("<<< Country - Error >>>", error);
         next();
       }
     });
