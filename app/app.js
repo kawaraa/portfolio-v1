@@ -12,19 +12,6 @@ const fetch = require("node-fetch");
     const apiRouter = getApiRouter(express.Router());
     const webRouter = getV1Router(express.Router());
 
-    app.use(async (req, res, next) => {
-      try {
-        req.country = null;
-        const url = `https://get.geojs.io/v1/ip/country/${req.headers["x-forwarded-for"]}.json`;
-        const geo = await fetch(url).then((res) => res.json());
-        console.log("<<< Geo Country >>>", geo);
-        if (geo && geo.country) req.country = geo.country;
-        next();
-      } catch (error) {
-        console.log("<<< Country - Error >>>", error);
-        next();
-      }
-    });
     app.set("trust proxy", true);
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
