@@ -4,6 +4,7 @@ const express = require("express");
 const getApiRouter = require("./server/index");
 const getV1Router = require("./client/get-v-1-router");
 const englishBookView = require("./client/page/english-book.html");
+const fetch = require("node-fetch");
 
 (async () => {
   try {
@@ -15,8 +16,8 @@ const englishBookView = require("./client/page/english-book.html");
       try {
         req.country = null;
         const url = `https://get.geojs.io/v1/ip/country/${request.headers["x-forwarded-for"]}.json`;
-        const res = await this.fetch(url).then((res) => res.json());
-        console.log("<<< Country >>>", res);
+        const geo = await fetch(url).then((res) => res.json());
+        console.log("<<< Geo Country >>>", geo);
         if (res && res.country) req.country = res.country;
         next();
       } catch (error) {
