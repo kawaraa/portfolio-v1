@@ -11,12 +11,21 @@ const englishBookView = require("./client/page/english-book.html");
     const apiRouter = getApiRouter(express.Router());
     const webRouter = getV1Router(express.Router());
 
-    app.use((req, res, next) => {
-      console.log("<<<<< Headers >>>> \n", req.headers);
-      req.country = req.headers["cf-ipcountry"] || "ALL";
+    app.use(async (req, res, next) => {
+      try {
+        req.country = null;
+        const url = `https://get.geojs.io/v1/ip/country/${request.headers["x-forwarded-for"]}.json`;
+        const res = await this.fetch(url).then((res) => res.json());
+        if (res && res.country) req.country = res.country;
+        next();
+      } catch (error) {
+        next();
+      }
+    });
+    app.use(async (req, res, next) => {
+      console.log("<<< Country >>>", req.country);
       next();
     });
-
     app.set("trust proxy", true);
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
