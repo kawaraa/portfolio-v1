@@ -18,10 +18,10 @@ const fetch = require("node-fetch");
         const url = `https://get.geojs.io/v1/ip/country/${request.headers["x-forwarded-for"]}.json`;
         const geo = await fetch(url).then((res) => res.json());
         console.log("<<< Geo Country >>>", geo);
-        if (res && res.country) req.country = res.country;
+        if (geo && geo.country) req.country = geo.country;
         next();
       } catch (error) {
-        console.log("<<< Country - Error >>>", res);
+        console.log("<<< Country - Error >>>", error, geo);
         next();
       }
     });
