@@ -13,8 +13,9 @@ CREATE TABLE IF NOT EXISTS `project` (
 
 CREATE TABLE IF NOT EXISTS `rate` (
   `userId` VARCHAR(255),
-  `stars` DECIMAL(1, 1) NOT NULL,
-  PRIMARY KEY(userId)
+  `projectId` VARCHAR(255),
+  `stars` DECIMAL(3, 2) NOT NULL,
+  PRIMARY KEY(`userId`, `projectId`)
 );
 
 
